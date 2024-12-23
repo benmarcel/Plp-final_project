@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient profile</title>
+    <link rel="stylesheet" href="./profile.css">
+</head>
+<body>
+    <main>
+        <h4 class="logo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="22px"
+              viewBox="0 -960 960 960"
+              width="22px"
+              fill="#000"
+            >
+              <path
+                d="M420-280h120v-100h100v-120H540v-100H420v100H320v120h100v100ZM160-120v-480l320-240 320 240v480H160Zm80-80h480v-360L480-740 240-560v360Zm240-270Z"
+              />
+            </svg>
+            Gozie<span>-telemed</span>
+          </h4>
+        <div class="alert"></div>
+        <h2 class="heading">Patient's Profile</h2>
+        <div class="profile-container">
+            <div class="profile-div" id="name-initials"></div>
+            <p>Name: <span class="name"> </span></p>
+            <p>Email: <span class="email"> </span></p>
+            <p>Contact: <span class="phone"></span></p>
+            <p>Address: <span class="address"></span></p>
+            <p>Gender: <span class="gender"> </span></p>
+           <div class="btn-container">
+            <button type="button" class="edit-btn">Edit profile</button>
+            <button type="button" class="delete-btn">Delete Account</button>
+           </div>
+
+            <form  class="update-profile" id="update-profile" style="display: none;">
+                <label for="f-name"> first name</label>
+                <input type="text" id="f-name">
+                <label for="l-name"> last name</label>
+                <input type="text" id="l-name">
+                <label for="dob">Date of birth</label>
+                <input type="text" id="dob" placeholder="yyyy-mm-dd">
+                <label for="gender"> Gender</label>
+                <input type="text" id="gender">
+                <label for="phone"> phone</label>
+                <input type="number" id="phone">
+                <label for="address"> address</label>
+                <input type="text" id="address">
+                <button type="submit" id="update-btn">Update</button>
+                <button type="button" id="cancel-btn">Cancel</button>
+            </form>
+        </div>
+    </main>
+    <script src="./profile.js"></script>
+</body>
+</html>

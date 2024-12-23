@@ -1,0 +1,209 @@
+*, *::after, *::before{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+   
+}
+:root{
+    --font-color:rgb(3, 11, 20);
+    /* --light-color: #57cac3; */
+    --nav-b-color:  #fbfbfb;
+    --light-color:rgb(104, 174, 254);
+    --form-background:#f4f1f1;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+    background-color: var(--nav-b-color);
+    position: sticky;
+    z-index: 9999;
+    border:1px solid #d2c8c8;
+       
+}
+.nav-container{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+   
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    column-gap:20px;
+    width: 100%;
+}
+li, a{
+    list-style: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: var(--font-color);
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: clamp(.5em, 1em, 1.2em)
+}
+.logo, .login-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo span, .logo svg{
+    color:var(--light-color);
+    fill: var(--light-color);
+}
+.logout-btn{
+    background-color: var(--light-color);
+    border-radius: 1.5rem;
+    cursor: pointer;
+    padding: 5px 8px;
+    border: none;
+    
+}
+.logout-btn:hover{
+    transform: scale(1.1);
+    color: #fff;
+}
+
+.hidden{
+    display: none;
+}
+
+.profile svg{
+    fill: var(--font-color);
+}
+
+.profile svg:hover{
+    fill:var(--light-color);
+}
+.alert{
+    position: absolute;
+    top:20px;
+    left: 0;
+    right: 0;
+    width: fit-content;
+    margin-inline:auto;
+    border-radius: .3rem;
+    background-color: #f0ebeb;
+}
+
+.success{
+    color: green;
+    padding: 5px;
+}
+.failed{
+    color:red;
+    padding: 5px;
+}
+
+
+.welcome-page{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 100%;
+    height: 100%;
+    row-gap: 20px;
+    padding-left: 20px;
+}
+.welcome{
+text-transform: capitalize;
+font-size: large;
+margin-top: 30px;
+width:fit-content;
+padding: 10px;
+transition: all 1s ease-out;
+}
+.doctors-container{
+    width: 100%;
+    padding: 15px;
+    animation: fade-in 5s ease-in 1 forwards;
+   /* animation: come-in 5s ease-in 2s 1 forwards; */
+   /* opacity: 0; */
+}
+.doctors-container h4{
+    margin-bottom: 15px;
+    border-top:1px solid var(--light-color);
+    border-bottom: 1px solid var(--light-color);
+    width: fit-content;
+    padding: 5px 0px;
+}
+.doctors{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    
+}
+.doctor{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* align-items: center; */
+    background-color:rgb(230, 237, 245);
+    box-shadow: 5px, 5px, #cfeff1;
+    border-radius: 2rem;
+    padding: 15px;
+    font-size: .8rem;
+
+}
+.initials{
+    text-align: center;
+    padding: 15px;
+    width: fit-content;
+    background-color: #f4f1f1;
+    border-radius: 50%;
+    text-transform: uppercase;
+}
+.name, .specialty{
+    text-transform: capitalize;
+}
+/* appointment form css */
+.appointment-form input{
+    /* border: none; */
+    background-color: transparent;
+    cursor: pointer;
+    border: 0.5px solid var(--light-color);
+    
+}
+form  button{
+    padding: 2px 5px;
+    font-size: 1rem;
+    border: 1px solid var(--light-color);
+    cursor: pointer;
+    background-color: var(--light-color);
+    text-align: center;
+    text-transform: capitalize;
+    font-size: .8rem;
+}
+form  button:hover{
+    
+    color: var(--form-background);
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes come-in {
+    0%{
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 1;
+    }
+}
