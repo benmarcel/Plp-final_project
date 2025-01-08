@@ -81,13 +81,14 @@ li, a{
 }
 .alert{
     position: absolute;
-    top:20px;
+    top:30px;
     left: 0;
     right: 0;
     width: fit-content;
     margin-inline:auto;
     border-radius: .3rem;
     background-color: #f0ebeb;
+    z-index: 99999;
 }
 
 .success{

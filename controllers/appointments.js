@@ -15,6 +15,14 @@ exports.bookAppointment = async (req, res) => {
         status: "failed",
       });
     }
+    // checking if any of credentials is not present
+    if (!doctor_id | !appointment_date | !appointment_time) {
+      
+      return res.status(201).json({msg:'all fields are required', status:'failed' })
+    }
+
+
+    // save the appointment
     await pool.execute(
       "INSERT INTO appointments(patient_id, doctor_id, appointment_date, appointment_time, status) VALUES(?,?,?,?, 'scheduled')",
       [patient_id, doctor_id, appointment_date, appointment_time]
@@ -37,10 +45,15 @@ exports.getAppointments = async (req, res) => {
   try {
     const query = `SELECT a.appointment_date, a.appointment_time, a.status, p.first_name AS patient_f_name, p.last_name AS patient_l_name, 
     d.first_name AS doctor_f_name, d.last_name AS doctor_l_name FROM appointments a JOIN patients p ON a.patient_id = p.patient_id JOIN doctors d ON a.doctor_id = d.doctor_id
-        WHERE a.appointment_date > NOW() ORDER BY a.appointment_date ASC`;
+        ORDER BY a.appointment_date ASC`;
     const [appointments] = await pool.query(query);
     res.status(200).json({ data: appointments });
-  } catch (error) {}
+  } catch (error) {
+    if (error) {
+      console.log(error);
+      
+    }
+  }
 };
 
 // patient can view his or current appointments

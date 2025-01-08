@@ -6,6 +6,7 @@ const emailDOM = document.querySelector('.email')
 const phoneDOM = document.querySelector('.phone')
 const addressDOM = document.querySelector('.address')
 const genderDOM = document.querySelector('.gender')
+const dobDOM = document.querySelector('.dob')
 const initialsDom = document.querySelector('.profile-div')
 const updateForm = document.forms['update-profile'];
 const editBtn = document.querySelector('.edit-btn')
@@ -33,7 +34,8 @@ const fetchPatientDetails = async () => {
     });
     const data = await response.json();
     const {first_name, last_name, email, phone, date_of_birth, gender, address} = data.data;
-
+    const date = new Date(date_of_birth);
+    const dob = date.toDateString();
 
     // displaying patient profile
     initialsDom.textContent = `${first_name[0]}${last_name[0]}`.toUpperCase() // patients initials
@@ -42,6 +44,7 @@ const fetchPatientDetails = async () => {
     phoneDOM.textContent  = phone; // patient phone number
     addressDOM.textContent  = address; // patient address
     genderDOM.textContent = gender; // patient gender
+    dobDOM.textContent = dob; //patient's date of birth
 
     // update profile
    
@@ -64,13 +67,16 @@ const fetchPatientDetails = async () => {
 window.addEventListener("DOMContentLoaded", fetchPatientDetails);
 
 // edit-btn
+const formDiv = document.querySelector('.form-div')
 editBtn.addEventListener("click", ()=>{
-updateForm.style.display = 'block';
+updateForm.classList.remove('hidden');
+formDiv.classList.remove('hidden')
 })
 
 // cancel-btn event
 updateForm['cancel-btn'].addEventListener("click", ()=>{
-  updateForm.style.display = 'none';
+  updateForm.classList.add('hidden')
+  formDiv.classList.add('hidden')
   fetchPatientDetails()
   })
 
@@ -86,7 +92,7 @@ updateForm.addEventListener('submit', async(e)=>{
   dob: updateForm['dob'].value,
   gender: updateForm['gender'].value
   }
-  console.log(putData);
+  // console.log(putData);
   try {
     const response = await fetch('/patients/profile/update', {
       method:"PATCH",
@@ -101,7 +107,8 @@ updateForm.addEventListener('submit', async(e)=>{
   const status = serverRes.status;
   alert(message, status)
   if (response.ok) {
-    updateForm.style.display = 'none';
+    formDiv.classList.add('hidden')
+    updateForm.classList.add('hidden')
     fetchPatientDetails()
   }
   } catch (error) {

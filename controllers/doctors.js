@@ -17,7 +17,7 @@ exports.getDoctors = async (req, res) => {
 };
 
 exports.updateProfile = async (req, res) => {
-  const { doctorID } = req.body;
+  
   try {
     const {
       doctor_id,
@@ -40,7 +40,7 @@ exports.updateProfile = async (req, res) => {
       doctor_id,
     ]);
 
-    res.status(200).json({ msg: "profile has been updated successfully" });
+    res.status(200).json({ msg: "profile has been updated successfully", status:'success'});
   } catch (error) {
     if (error) {
       res.status(500).send("Server error!");
@@ -50,12 +50,12 @@ exports.updateProfile = async (req, res) => {
 };
 
 exports.deleteDoctor = async (req, res) => {
-  const { doctorID, email } = req.body;
+  const { doctorID } = req.body;
 
   try {
     const [results] = await pool.query(
       "SELECT * from doctors WHERE email = ?",
-      [email]
+      [doctorID]
     );
     if(!results){
       return res.status(404).json({msg:'Invalid id! please check id and try again'})

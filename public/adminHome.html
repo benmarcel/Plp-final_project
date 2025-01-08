@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Home page</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./admin.css" />
+    <link rel="stylesheet" href="./index.html" />
+    <link rel="stylesheet" href="./normalize.css">
+  </head>
+  <body>
+    <main>
+      <nav>
+        <div class="nav-container">
+          <ul class="navbar">
+            <li class="logo">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#000"
+              >
+                <path
+                  d="M420-280h120v-100h100v-120H540v-100H420v100H320v120h100v100ZM160-120v-480l320-240 320 240v480H160Zm80-80h480v-360L480-740 240-560v360Zm240-270Z"
+                />
+              </svg>
+              Gozie <span>-telemed</span>
+            </li>
+            <li><a href="./index.html" class="home">Home</a></li>
+            <li class="services nav-hide"><a href="#patients">Patients</a></li>
+            <li class="about-us nav-hide"><a href="#doctors">Doctors</a></li>
+            <li class="admin nav-hide">
+              <a href="#appointments">Appointments</a>
+            </li>
+            <li class="logout" id="admin-logout-btn">logout</li>
+          </ul>
+        </div>
+      </nav>
+      <div class="alert"></div>
+      <section class="patients-section" id="patients">
+        <h2 class="patient-heading">Patients</h2>
+        <table class="patients-table">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>gender</th>
+              <th>phone</th>
+              <th>date of birth</th>
+            </tr>
+          </thead>
+          <tbody class="table-body"></tbody>
+        </table>
+      </section>
+      <section class="doctors-section" id="doctors">
+        <h2 class="doctors">Doctors</h2>
+        <table class="doctors-table">
+          <thead>
+            <th>S/N</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+            <th>Specialty</th>
+            <th>Schedule</th>
+            <th>phone</th>
+            <th>control</th>
+          </thead>
+          <tbody class="doctors-body"></tbody>
+        </table>
+        <button type="button" class="add-btn">Add doctors</button>
+        <div class="form-div hidden">
+          <!-- <form class="add-doctors-form hidden" name="add-doctors-form">
+            <h2>Add New Doctor</h2>
+            <input type="text" id="first-name" placeholder=" " /><label
+              for="first-name"
+              >first name</label
+            >
+            <input type="text" id="last-name" placeholder=" " /><label
+              for="last-name"
+              >last name</label
+            >
+            <input type="email" id="email" placeholder=" " /><label for="email"
+              >Email</label
+            >
+            <input type="text" id="Specialty" placeholder=" " /><label
+              for="Specialty"
+              >Specialty</label
+            >
+            <input type="number" id="phone" placeholder=" " /><label
+              for="phone"
+              >phone</label
+            >
+            <input type="text" id="Schedule" placeholder=" " /><label
+              for="Schedule"
+              >Schedule</label
+            >
+            <div>
+              <button type="submit" id="add">Add</button
+              ><button type="button" id="cancel">cancel</button>
+            </div>
+          </form> -->
+        </div>
+      </section>
+      <section class="appointment-section" id="appointments">
+        <h2 class="Appointments">Appointments</h2>
+        <table class="appointments-table">
+          <thead>
+            <th>S/N</th>
+            <th>Patient's Name</th>
+            <th>Doctor's Name</th>
+            <th>Appointment Date</th>
+            <th>Appointment Time</th>
+            <th>Status</th>
+          </thead>
+          <tbody class="appointments-body"></tbody>
+        </table>
+      </section>
+    </main>
+    <script src="./admin.js"></script>
+  </body>
+</html>

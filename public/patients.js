@@ -60,9 +60,9 @@ window.addEventListener("DOMContentLoaded", async () => {
         <p class="schedule"><span>Available:</span> ${doctor.schedule}</p>
         <form name="appointment-form" class="appointment-form" id="${doctor.doctor_id}">
         <label for="date" >Date:</label>
-        <input type="date" id ="date" placeholder=" " >
+        <input type="date" id ="date" placeholder=" " required>
         <label for="time" >Time:</label>
-        <input type="time" id ="time" placeholder=" ">
+        <input type="time" id ="time" placeholder=" " required>
         <button type="submit"  class="appointment">Book Appointment</button>
         </form>
       </div>`;

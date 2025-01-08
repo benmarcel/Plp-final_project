@@ -108,10 +108,6 @@ exports.loginPatient = async (req, res) => {
      status: "success",
    });
     
-
-
-    
-    
   } catch (error) {
     if (error) {
       res.status(500).json({ msg: "server error!" });
@@ -153,6 +149,10 @@ exports.updateProfile = async (req, res) => {
   const userId = req.session.patient.user_id;
   try {
     const { first_name, last_name, phone, dob, gender, address } = req.body;
+
+    if (!first_name| !last_name| !phone| !dob| !gender| !address) {
+      return res.status(201).json({msg:'all fields are required'})
+    }
     await pool.execute(
       "UPDATE patients SET first_name = ?, last_name = ?, phone = ?, date_of_birth = ?, gender = ?, address = ? WHERE patient_id = ?",
       [first_name, last_name, phone, dob, gender, address, userId]
@@ -167,7 +167,7 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
-// log out patient
+// log out 
 
 exports.logout = (req, res) => {
   req.session.destroy((err) => {

@@ -7,70 +7,117 @@
     <link rel="page" href="./register.html" />
     <link rel="page" href="./login.html" />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./normalize.css" />
   </head>
   <body>
-    <nav>
-      <div class="nav-container">
-        <ul class="navbar">
-          <li class="logo">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24px"
-              viewBox="0 -960 960 960"
-              width="24px"
-              fill="#000"
-            >
-              <path
-                d="M420-280h120v-100h100v-120H540v-100H420v100H320v120h100v100ZM160-120v-480l320-240 320 240v480H160Zm80-80h480v-360L480-740 240-560v360Zm240-270Z"
-              />
-            </svg>
-            Gozie <span>-telemed</span>
-          </li>
-          <li class="home nav-hide"><a href="#home">Home</a></li>
-          <li class="services nav-hide"><a href="#services">Services</a></li>
-          <li class="about-us nav-hide"><a href="#benefits">About Us</a></li>
-          <li class="admin nav-hide"><a href="#howit-works">Admin</a></li>
-          <li class="login">
-            <a href="./login.html" class="login-link"
-              >login
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="22px"
-                viewBox="0 -960 960 960"
-                width="22px"
-                fill="#000"
-              >
-                <path
-                  d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"
-                />
-              </svg>
-            </a>
-          </li>
-
-          <li class="show-menu hidden">
-            <a href="#" title="menu">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="30"
-                viewBox="0 -960 960 960"
-                width="30"
-              >
-                <path
-                  d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
-                />
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
     <main>
       <div class="container">
+        <nav>
+          <div class="nav-container">
+            <ul class="navbar">
+              <li class="logo">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="#000"
+                >
+                  <path
+                    d="M420-280h120v-100h100v-120H540v-100H420v100H320v120h100v100ZM160-120v-480l320-240 320 240v480H160Zm80-80h480v-360L480-740 240-560v360Zm240-270Z"
+                  />
+                </svg>
+                Gozie <span>-telemed</span>
+              </li>
+              <li class="home nav-hide"><a href="#home">Home</a></li>
+              <li class="services nav-hide">
+                <a href="#services">Services</a>
+              </li>
+              <li class="about-us nav-hide">
+                <a href="#benefits">Benefits</a>
+              </li>
+              <li class="admin nav-hide">
+                <a href="./admin-login.html">Admin</a>
+              </li>
+              <li class="login">
+                <a href="./login.html" class="login-link"
+                  >login
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="22px"
+                    viewBox="0 -960 960 960"
+                    width="22px"
+                    fill="#000"
+                  >
+                    <path
+                      d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"
+                    />
+                  </svg>
+                </a>
+              </li>
+
+              <li class="show-menu hidden">
+                
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="30"
+                    viewBox="0 -960 960 960"
+                    width="30"
+                  >
+                    <path
+                      d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"
+                    />
+                  </svg>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="sidebar hidden">
+          <div class="close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 -960 960 960"
+              width="24"
+              class="close-svg"
+            >
+              <path
+                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+              />
+            </svg>
+          </div>
+          <ul>
+            <li class="sidebar-home"><a href="#home">Home</a></li>
+            <li class="sidebar-services"><a href="#services">Services</a></li>
+            <li class="sidebar-about-us"><a href="#benefits">Benefits</a></li>
+            <li class="sidebar-admin">
+              <a href="./admin-login.html">Admin</a>
+            </li>
+            <li class="sidebar-login">
+              <a href="./login.html"
+                >login
+                <!-- <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="22px"
+                  viewBox="0 -960 960 960"
+                  width="22px"
+                  fill="#000"
+                >
+                  <path
+                    d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"
+                  />
+                </svg> -->
+              </a>
+            </li>
+          </ul>
+        </div>
         <section id="home" class="section-1">
           <div class="home-div">
             <div class="introduction">
-              <h3 class="welcome">Welcome to Gozie-telemed;</h3>
-              <h4>your number one partner in virtual healthcare.</h4>
+              <h2 class="welcome">Welcome to Gozie-telemed;</h2>
+              <h4 class="welcome">
+                your number one partner in virtual healthcare.
+              </h4>
               <p>
                 A cutting-edge telemedicine platform that revolutionizes the way
                 you access healthcare services. <br />Our mission is to provide
@@ -180,38 +227,13 @@
             <a href="#">Privacy Policy</a>
           </div>
         </footer>
-      <div class="btn-div">
-        <button type="button" class="back-to-top hidden"><span>&#8593;</span> Back to Top</button>
-      </div>
+        <div class="btn-div">
+          <button type="button" class="back-to-top hidden">
+            <span>&#8593;</span> Back to Top
+          </button>
+        </div>
       </div>
     </main>
-    <script>
-      const backToTop = ()=>{
-        const backToTopBtn = document.querySelector('.back-to-top')
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const docHeight = document.documentElement.scrollHeight;
-        window.addEventListener('scroll', ()=>{
-        //  check if document has been scrolled to the end 
-        if (scrollPosition >= docHeight) {
-          backToTopBtn.classList.remove('hidden')
-          console.log(scrollPosition, docHeight);
-          
-        }
-
-        // if (scrollPosition <= (docHeight / 2)) {
-        //   backToTopBtn.classList.add('hidden')
-        // }
-        })
-        
-
-        
-      backToTopBtn.addEventListener('click', () =>{
-        backToTopBtn.classList.add('hidden')
-        globalThis.scrollTo({top:0, left:0, behavior:"smooth"})
-      })
-      }
-    document.addEventListener('DOMContentLoaded', backToTop)
-
-    </script>
+    <script src="./index.js"></script>
   </body>
 </html>

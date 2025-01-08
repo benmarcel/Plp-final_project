@@ -36,8 +36,7 @@ const rescheduleAppoint = async (form, id) => {
     alert(message, status);
 
     if (response.ok) {
-     
-      appointmentRescheduleDOM.innerHTML=''
+      appointmentRescheduleDOM.innerHTML = "";
       setTimeout(() => {
         window.location.reload();
       }, 2000);
@@ -54,7 +53,7 @@ const getAppointment = async () => {
   try {
     const response = await fetch("/appointments/appointment");
     const serverRes = await response.json();
-    console.log(serverRes.data);
+    // console.log(serverRes.data);
     const appointments = serverRes.data;
     if (response.ok) {
       appointmentTable.innerHTML += `<thead>
@@ -73,12 +72,14 @@ const getAppointment = async () => {
                   doctor_f_name,
                   doctor_l_name,
                 } = appointment;
+                const date = new Date(appointment_date)
+                const appointmentDate = date.toDateString();
                 return `
           <tbody>
               <tr>
                  <td>${
                    index + 1
-                 }</td> <td>${appointment_date}</td><td>${appointment_time}</td><td>${doctor_f_name} ${doctor_l_name}</td> <td>
+                 }</td> <td>${appointmentDate}</td><td>${appointment_time}</td><td>${doctor_f_name} ${doctor_l_name}</td> <td>
               <button type="button" id="${appointment_id}" class="reschedule-btn">Reschedule</button>   
               <button type="button" id="${appointment_id}" class="cancel-btn">Cancel</button></td>
               </tr>
@@ -125,10 +126,8 @@ const getAppointment = async () => {
       const rescheduleBtns = document.querySelectorAll(".reschedule-btn");
       rescheduleBtns.forEach((btn) => {
         btn.addEventListener("click", (e) => {
-         
           const id = e.target.getAttribute("id");
-         
-          
+
           appointmentRescheduleDOM.innerHTML = `<form name="reschedule-form" id="reschedule-form" class="reschedule">
             <label for="date">Date</label>
             <input type="date" id="date">
@@ -138,15 +137,13 @@ const getAppointment = async () => {
             <button type="button" class="cancel-reschedule">cancel</button>
         </form>`;
 
-
-          if (appointmentRescheduleDOM.innerHTML !== "" ) {
-
+          if (appointmentRescheduleDOM.innerHTML !== "") {
             const rescheduleForm = document.forms["reschedule-form"];
             // send new time and date to the server
-            rescheduleForm.addEventListener("submit", (e) =>{
-              e.preventDefault()
-              rescheduleAppoint(rescheduleForm, id)}
-            );
+            rescheduleForm.addEventListener("submit", (e) => {
+              e.preventDefault();
+              rescheduleAppoint(rescheduleForm, id);
+            });
             // canceling process if user decide not to reschedule
             document
               .querySelector(".cancel-reschedule")
