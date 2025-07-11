@@ -75,10 +75,14 @@ a {
 }
 
 /* logo */
-#logo{
-position: absolute;
-left: 10px;
-/* background-color: blue; */
+#logo {
+  position: absolute;
+  left: 10px;
+  /* background-color: blue; */
+}
+.hamburger {
+  position: absolute;
+  right: -90%;
 }
 .logo,
 .login-link {
@@ -455,80 +459,184 @@ footer {
   font-weight: bolder;
   font-size: 1.5rem;
 }
-/* form css */
+/* form responsive styles */
+
 .form-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw; /* Takes full viewport width */
+  min-height: 100vh; /* Use min-height to ensure it takes full height but can expand */
   background-color: var(--form-background);
+  padding: 20px; /* Add some padding around the form itself for smaller screens */
+  box-sizing: border-box; /* Ensure padding is included in 100vw */
 }
+
 .form-container h2 {
   color: var(--light-color);
   text-transform: capitalize;
-  font-size: 2rem;
+  font-size: 2rem; /* Will be adjusted by media query if needed */
+  margin-bottom: 20px; /* Add some space below the heading */
+  text-align: center; /* Center the heading */
 }
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
-  width: 80%;
-  row-gap: 10px;
-  padding: 10px;
-  box-shadow: 5px 5px 15px #201e1e; /* for better visual separation */
+  max-width: 600px; /* Max width on larger screens */
+  width: 95%; /* Adjust to 95% for better padding on small screens */
+  row-gap: 15px; /* Slightly increase gap for better spacing */
+  padding: 25px; /* Increase padding inside the form */
+  box-shadow: 5px 5px 15px rgba(32, 30, 30, 0.2); /* Added rgba for softer shadow */
+  background-color: #fff; /* Give the form a background to stand out from container */
+  border-radius: 8px; /* Slightly rounded corners for modern look */
+  box-sizing: border-box; /* Ensure padding and border are within specified width */
 }
+
 .form-container input {
   width: 100%;
   border: none;
   border-bottom: 1px solid black;
   background-color: transparent;
-  padding-bottom: 5px; /* for better spacing under label */
+  padding: 8px 0; /* Add some vertical padding for easier tapping/clicking */
+  font-size: 1rem; /* Ensure input text is readable */
 }
+
 .form-container label {
-  transform: translateY(-35px);
+  /* Keep existing styles */
+  transform: translateY(
+    -35px
+  ); /* This will need to be re-evaluated for date inputs if they don't have labels */
   width: 100%;
-  transition: transform 0.3s ease, color 0.3s ease; /* for smooth label movement */
-  pointer-events: none; /* Prevent label from interfering with input clicks */
+  transition: transform 0.3s ease, color 0.3s ease;
+  pointer-events: none;
 }
+
 .form-container input:focus {
   border: none;
   outline: none;
   border-bottom: 1px solid var(--light-color);
   background: none;
+  color: var(--font-color); /* Added text color change on focus */
 }
-.form-container input:focus + label {
+
+/* Ensure the label floating works for text/email/password inputs */
+.form-container input:not([type="date"]):not(:placeholder-shown) + label,
+.form-container input:not([type="date"]):focus + label {
   transform: translateY(-45px);
   color: var(--light-color);
 }
-.form-container input:not(:placeholder-shown) + label,
-.form-container input:focus:not(:placeholder-shown) + label {
-  /* Ensures focus works with placeholder */
-  transform: translateY(-45px);
-  color: var(--light-color); /* ensures color change consistently */
+
+/* Specific styling for date input if it doesn't have a label but still needs the focus style */
+.form-container input[type="date"]:focus {
+  border-bottom: 1px solid var(--light-color);
+  color: var(--font-color); /* Ensure date text also changes color */
 }
+
 .form-container button {
-  padding: 5px 15px;
-  font-size: 1rem;
-  border-radius: 1rem;
+  padding: 10px 20px; /* Larger padding for easier tapping */
+  font-size: 1.1rem; /* Slightly larger text */
+  border-radius: 1.5rem; /* More rounded */
   border: 1px solid var(--light-color);
+  background-color: var(
+    --light-color
+  ); /* Start with color for better visibility */
+  color: #fff; /* White text on colored button */
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* for smooth hover */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added transform for subtle hover */
+  margin-top: 10px; /* Space above button */
+  width: 100%; /* Make button full width of form */
+  max-width: 250px; /* Limit button width on large screens */
 }
 .form-container button:hover {
-  background-color: var(--light-color);
-  color: var(--form-background);
+  background-color: var(--font-color); /* Darker background on hover */
+  color: #fff;
+  transform: translateY(-2px); /* Subtle lift on hover */
 }
+.form-container button:active {
+  transform: translateY(0); /* Push down on click */
+}
+
 .form-container a {
   color: var(--light-color);
+  margin-top: 10px; /* Space above link */
+  font-size: 0.95rem;
 }
+
 .radio {
   width: 100%;
-  margin-top: -15px;
-  margin-bottom: 10px;
+  margin-top: 5px; /* Adjust margin for better spacing */
+  margin-bottom: 15px; /* Space after radio group */
+  display: flex; /* Use flexbox for alignment of radios */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 15px; /* Space between radio items */
+  justify-content: center; /* Center radio options if few */
+  align-items: center; /* Vertically align */
 }
-.radio label,
+.radio label {
+  transform: none; /* Reset transform for radio labels */
+  width: fit-content; /* Allow label to shrink to content */
+  pointer-events: auto; /* Allow interaction with radio labels */
+  color: var(--font-color); /* Default color for radio labels */
+}
 .radio input {
-  width: fit-content;
+  width: fit-content; /* Keep actual radio input small */
+  margin-right: 5px; /* Space between radio button and its label */
+  border-bottom: none; /* No bottom border for radio inputs */
+  padding: 0; /* Remove padding from radio inputs */
+}
+
+/* --- Media Queries for smaller screens --- */
+@media (max-width: 600px) {
+  .form-container h2 {
+    font-size: 1.8rem; /* Slightly smaller heading on small screens */
+  }
+
+  form {
+    width: 90%; /* Take up more width on smaller screens */
+    padding: 20px; /* Reduce padding slightly */
+    row-gap: 10px; /* Reduce row gap */
+  }
+
+  .form-container input {
+    font-size: 0.95rem; /* Slightly smaller input text */
+    padding: 6px 0;
+  }
+
+  .form-container label {
+    transform: translateY(-30px); /* Adjust label float position */
+  }
+  .form-container input:focus + label,
+  .form-container input:not([type="date"]):not(:placeholder-shown) + label,
+  .form-container input:not([type="date"]):focus + label {
+    transform: translateY(
+      -40px
+    ); /* Adjust label float position on focus/filled */
+  }
+
+  .form-container button {
+    font-size: 1rem;
+    padding: 8px 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .form-container h2 {
+    font-size: 1.5rem;
+  }
+  form {
+    width: 95%; /* Almost full width on very small screens */
+    padding: 15px;
+  }
+  .radio {
+    flex-direction: column; /* Stack radio options vertically */
+    gap: 8px; /* Closer spacing when stacked */
+    align-items: flex-start; /* Align radio options to the left */
+  }
+  .form-container input:focus + label,
+  .form-container input:not([type="date"]):not(:placeholder-shown) + label,
+  .form-container input:not([type="date"]):focus + label {
+    transform: translateY(-35px); /* Final adjustment for very small screens */
+  }
 }
