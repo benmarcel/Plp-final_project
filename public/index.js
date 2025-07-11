@@ -4,8 +4,15 @@ const backToTop = () => {
     const close = document.querySelector('.close-svg');
     const menu = document.querySelector('.show-menu');
     const sidebar = document.querySelector('.sidebar');
+    const sidebarLinks = document.querySelectorAll('.sidebar-li');
 
-  
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.add('hidden');
+    });
+  });
+
+// Function to toggle the sidebar menu visibility
   const toggleMenu = () =>{
     sidebar.classList.toggle('hidden')
   }
